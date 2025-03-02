@@ -50,7 +50,7 @@ const Hero = () => {
                     </Link>
                     <Link href={"https://github.com/vel-gaurea"}>
                         <Button size="lg" className="px-8" variant="outline">
-                            Get Started
+                            Learn More
                         </Button>
                     </Link>
                 </div>
@@ -58,12 +58,12 @@ const Hero = () => {
                 <div className='hero-image-wrapper mt-5 md:mt-0'>
                     <div ref={imageRef} className='hero-image'>
                         <Image
-                            src={"/banner.jpeg"}
+                            src={"/banner3.jpeg"}
                             width={1280}
                             height={720}
                             alt='Banner-NovaPath'
                             className='rounded-lg shadow-2xl border mx-auto'
-                            priority 
+                            priority
                         />
                     </div>
                 </div>
