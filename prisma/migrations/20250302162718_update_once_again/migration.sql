@@ -11,12 +11,12 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "name" TEXT,
     "imageUrl" TEXT,
-    "industryId" TEXT,
+    "industry" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
     "bio" TEXT,
     "experience" INTEGER,
     "skills" TEXT[],
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -40,6 +40,8 @@ CREATE TABLE "Resume" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "content" TEXT NOT NULL,
+    "atsScore" DOUBLE PRECISION,
+    "feedback" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -51,9 +53,10 @@ CREATE TABLE "CoverLetter" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "content" TEXT NOT NULL,
-    "jobDescription" TEXT NOT NULL,
+    "jobDescription" TEXT,
     "companyName" TEXT NOT NULL,
     "jobTitle" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'draft',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -69,7 +72,7 @@ CREATE TABLE "IndustryInsight" (
     "demandLevel" "DemandLevel" NOT NULL,
     "topSkills" TEXT[],
     "marketOutlook" "MarketOutlook" NOT NULL,
-    "keyTrends" TEXT NOT NULL,
+    "keyTrends" TEXT[],
     "recommendedSkills" TEXT[],
     "lastUpdated" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "nextUpdate" TIMESTAMP(3) NOT NULL,
@@ -99,7 +102,7 @@ CREATE UNIQUE INDEX "IndustryInsight_industry_key" ON "IndustryInsight"("industr
 CREATE INDEX "IndustryInsight_industry_idx" ON "IndustryInsight"("industry");
 
 -- AddForeignKey
-ALTER TABLE "User" ADD CONSTRAINT "User_industryId_fkey" FOREIGN KEY ("industryId") REFERENCES "IndustryInsight"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "User" ADD CONSTRAINT "User_industry_fkey" FOREIGN KEY ("industry") REFERENCES "IndustryInsight"("industry") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Assessment" ADD CONSTRAINT "Assessment_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
