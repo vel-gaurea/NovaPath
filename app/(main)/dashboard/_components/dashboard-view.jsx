@@ -81,7 +81,8 @@ const DashboardView = ({ insights }) => {
 
       {/* Market Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
+        <Card
+        className="border-2 hover:border-primary transition-colors duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Market Outlook
@@ -96,7 +97,8 @@ const DashboardView = ({ insights }) => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card
+        className="border-2 hover:border-primary transition-colors duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Industry Growth
@@ -111,7 +113,8 @@ const DashboardView = ({ insights }) => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card
+        className="border-2 hover:border-primary transition-colors duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Demand Level</CardTitle>
             <BriefcaseIcon className="h-4 w-4 text-muted-foreground" />
@@ -126,7 +129,8 @@ const DashboardView = ({ insights }) => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card
+        className="border-2 hover:border-primary transition-colors duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Top Skills</CardTitle>
             <Brain className="h-4 w-4 text-muted-foreground" />
@@ -144,7 +148,7 @@ const DashboardView = ({ insights }) => {
       </div>
 
       {/* Salary Ranges Chart */}
-      <Card className="col-span-4">
+      <Card className="col-span-4 ">
         <CardHeader>
           <CardTitle>Salary Ranges by Role</CardTitle>
           <CardDescription>
@@ -173,11 +177,10 @@ const DashboardView = ({ insights }) => {
                       );
                     }
                     return null;
-                  }}
-                />
-                <Bar dataKey="min" fill="#94a3b8" name="Min Salary (K)" />
-                <Bar dataKey="median" fill="#64748b" name="Median Salary (K)" />
-                <Bar dataKey="max" fill="#475569" name="Max Salary (K)" />
+                  }} />
+                <Bar dataKey="min" fill="#94a3b8" name="Min Salary (K)"  />
+                <Bar dataKey="median" fill="#64748b" name="Median Salary (K)"  />
+                <Bar dataKey="max" fill="#475569" name="Max Salary (K)"  />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -186,7 +189,8 @@ const DashboardView = ({ insights }) => {
 
       {/* Industry Trends */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card>
+        <Card
+        className="border-2 hover:border-primary transition-colors duration-300">
           <CardHeader>
             <CardTitle>Key Industry Trends</CardTitle>
             <CardDescription>
@@ -205,7 +209,8 @@ const DashboardView = ({ insights }) => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card
+        className="border-2 hover:border-primary transition-colors duration-300">
           <CardHeader>
             <CardTitle>Recommended Skills</CardTitle>
             <CardDescription>Skills to consider developing</CardDescription>
