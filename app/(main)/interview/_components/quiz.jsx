@@ -22,10 +22,10 @@ const Quiz = () => {
     } = useFetch(generateQuiz)
 
     useEffect(()=>{
-        if(question){
+        if(quizData){
             setAnswers(new Array(quizData.length).fill(null))
         }
-    })
+    },[quizData])
 
 
     const handleAnswer = (answer)=>{
